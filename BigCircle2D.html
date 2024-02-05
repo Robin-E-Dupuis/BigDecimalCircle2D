@@ -1,0 +1,212 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>BigCircle2D.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: monospace}
+pre {color: #000000; background-color: #ffffff; font-family: monospace}
+table {color: #404040; background-color: #e9e8e2; font-family: monospace}
+.ST1 {color: #969696; font-family: monospace; font-weight: bold}
+.ST2 {font-family: monospace; font-weight: bold}
+.comment {color: #969696}
+.ST6 {font-family: monospace; font-weight: bold; font-style: italic}
+.ST5 {font-family: monospace; font-style: italic}
+.ST4 {color: #ce54b8; font-family: monospace; font-style: italic}
+.ST0 {color: #287bde}
+.ST3 {color: #ce54b8}
+.string {color: #1e9347}
+.ST7 {color: #1e9347; font-family: monospace; font-weight: bold}
+.literal {color: #336bdd}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">C:\Users\smoul\OneDrive\Documents\NetBeansProjects\Circle2D\src\main\java\com\mycompany\circle2d\BigCircle2D.java</td></tr></table>
+<pre>
+<span class="comment">/*</span>
+<span class="comment"> * Click </span><span class="ST0">nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt</span><span class="comment"> to change this license</span>
+<span class="comment"> * Click </span><span class="ST0">nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java</span><span class="comment"> to edit this template</span>
+<span class="comment"> */</span>
+<span class="literal">package</span> com.mycompany.circle2d;
+
+
+
+<span class="comment">/**</span>
+<span class="comment"> *</span>
+<span class="comment"> * </span><span class="ST1">@author</span> <span class="comment">smoul</span>
+ <span class="comment">*/</span>
+
+ <span class="literal">import</span> java.math.BigDecimal;
+<span class="literal">import</span> java.math.MathContext;
+<span class="literal">import</span> java.util.Arrays;
+
+
+<span class="literal">import</span> java.math.BigDecimal;
+<span class="literal">import</span> java.math.MathContext;
+<span class="literal">import</span> java.util.Arrays;
+
+<span class="literal">public</span> <span class="literal">class</span> <span class="ST2">BigCircle2D</span> {
+    <span class="literal">private</span> BigDecimal <span class="ST3">x</span>;
+    <span class="literal">private</span> BigDecimal <span class="ST3">y</span>;
+    <span class="literal">private</span> BigDecimal <span class="ST3">radius</span>;
+
+    <span class="literal">public</span> <span class="ST2">BigCircle2D</span>() {
+        <span class="literal">this</span>(BigDecimal.<span class="ST4">ZERO</span>, BigDecimal.<span class="ST4">ZERO</span>, BigDecimal.<span class="ST4">ONE</span>);
+    }
+
+    <span class="literal">public</span> <span class="ST2">BigCircle2D</span>(BigDecimal x, BigDecimal y, BigDecimal radius) {
+        <span class="literal">this</span>.<span class="ST3">x</span> = x;
+        <span class="literal">this</span>.<span class="ST3">y</span> = y;
+        <span class="literal">this</span>.<span class="ST3">radius</span> = radius;
+    }
+
+    <span class="literal">public</span> BigDecimal <span class="ST2">getX</span>() {
+        <span class="literal">return</span> <span class="ST3">x</span>;
+    }
+
+    <span class="literal">public</span> BigDecimal <span class="ST2">getY</span>() {
+        <span class="literal">return</span> <span class="ST3">y</span>;
+    }
+
+    <span class="literal">public</span> BigDecimal <span class="ST2">getRadius</span>() {
+        <span class="literal">return</span> <span class="ST3">radius</span>;
+    }
+
+    <span class="literal">public</span> BigDecimal <span class="ST2">getArea</span>() {
+        BigDecimal radiusSquared = <span class="ST3">radius</span>.pow(2);
+        <span class="literal">return</span> BigDecimal.<span class="ST5">valueOf</span>(Math.<span class="ST4">PI</span>).multiply(radiusSquared);
+    }
+
+    <span class="literal">public</span> BigDecimal <span class="ST2">getPerimeter</span>() {
+        BigDecimal two = BigDecimal.<span class="ST5">valueOf</span>(2);
+        <span class="literal">return</span> BigDecimal.<span class="ST5">valueOf</span>(Math.<span class="ST4">PI</span>).multiply(<span class="ST3">r</span><span class="ST3">adius</span>).multiply(two);
+    }
+
+    @Override
+    <span class="literal">public</span> String <span class="ST2">toString</span>() {
+        <span class="literal">return</span> <span class="string">&quot;</span><span class="string">Circle2D{</span><span class="string">&quot;</span> +
+                <span class="string">&quot;</span><span class="string">x=</span><span class="string">&quot;</span> + <span class="ST3">x</span> +
+                <span class="string">&quot;</span><span class="string">, y=</span><span class="string">&quot;</span> + <span class="ST3">y</span> +
+                <span class="string">&quot;</span><span class="string">, radius=</span><span class="string">&quot;</span> + <span class="ST3">radius</span> +
+                <span class="string">&#39;</span><span class="string">}</span><span class="string">&#39;</span>;
+    }
+
+    @Override
+    <span class="literal">public</span> <span class="literal">boolean</span> <span class="ST2">equals</span>(Object o) {
+        <span class="literal">if</span> (<span class="literal">this</span> == o) <span class="literal">return</span> <span class="literal">true</span>;
+        <span class="literal">if</span> (o == <span class="literal">null</span> || getClass() != o.getClass()) <span class="literal">return</span> <span class="literal">false</span>;
+        BigCircle2D bigcircle2D = (BigCircle2D) o;
+        <span class="literal">return</span> <span class="ST3">x</span>.equals(bigcircle2D.<span class="ST3">x</span>) &amp;&amp;
+                <span class="ST3">y</span>.equals(bigcircle2D.<span class="ST3">y</span>) &amp;&amp;
+                <span class="ST3">radius</span>.equals(bigcircle2D.<span class="ST3">radius</span>);
+    }
+
+    <span class="literal">public</span> <span class="literal">boolean</span> <span class="ST2">contains</span>(BigDecimal x, BigDecimal y) {
+        BigDecimal d = distance(x, y, <span class="literal">t</span><span class="literal">his</span>.<span class="ST3">x</span>, <span class="literal">t</span><span class="literal">his</span>.<span class="ST3">y</span>);
+        <span class="literal">return</span> d.compareTo(<span class="ST3">r</span><span class="ST3">adius</span>) &lt;= 0;
+    }
+
+    <span class="literal">public</span> <span class="literal">boolean</span> <span class="ST2">contains</span>(BigCircle2D circle) {
+        BigDecimal d = distance(circle.<span class="ST3">x</span>, circle.<span class="ST3">y</span>, <span class="literal">t</span><span class="literal">his</span>.<span class="ST3">x</span>, <span class="literal">t</span><span class="literal">his</span>.<span class="ST3">y</span>);
+        <span class="literal">return</span> d.add(circle.<span class="ST3">radius</span>).compareTo(<span class="literal">t</span><span class="literal">his</span>.<span class="ST3">radius</span>) &lt;= 0;
+    }
+
+    <span class="literal">public</span> <span class="literal">boolean</span> <span class="ST2">overlaps</span>(BigCircle2D circle) {
+        BigDecimal d = distance(circle.<span class="ST3">x</span>, circle.<span class="ST3">y</span>, <span class="literal">t</span><span class="literal">his</span>.<span class="ST3">x</span>, <span class="literal">t</span><span class="literal">his</span>.<span class="ST3">y</span>);
+        <span class="literal">return</span> d.compareTo(circle.<span class="ST3">radius</span>.add(<span class="literal">t</span><span class="literal">his</span>.<span class="ST3">radius</span>)) &lt; 0;
+    }
+
+    <span class="literal">private</span> BigDecimal <span class="ST2">distance</span>(BigDecimal x1, BigDecimal y1, BigDecimal x2, BigDecimal y2) {
+        BigDecimal xDiff = x1.subtract(x2);
+        BigDecimal yDiff = y1.subtract(y2);
+        <span class="literal">return</span> xDiff.pow(2).add(yDiff.pow(2)).sqrt(<span class="literal">new</span> MathContext(10));
+    }
+
+    <span class="literal">public</span> <span class="literal">static</span> BigCircle2D[] <span class="ST6">sortCirclesByPerimeter</span>(BigCircle2D[] ar) {
+       <span class="literal">for</span> (<span class="literal">int</span> i = 0; i &lt; ar.<span class="ST3">length</span> - 1; i++) {
+        <span class="literal">for</span> (<span class="literal">int</span> j = 0; j &lt; ar.<span class="ST3">length</span> - i - 1; j++) {
+            
+            <span class="literal">if</span> (ar[j].getPerimeter().intValue()&gt; ar[j + 1].getPerimeter().intValue()) {
+                BigCircle2D temp = ar[j];
+                ar[j] = ar[j + 1];
+                ar[j + 1] = temp;
+            }
+        }
+    }
+    <span class="literal">return</span> ar;
+    }
+     
+    
+     <span class="literal">public</span> <span class="literal">int</span> <span class="ST2">getCounts</span>(BigCircle2D[] circle) {
+         <span class="literal">int</span> count = 0;
+         <span class="literal">double</span> d = distance(<span class="ST3">x</span>, <span class="ST3">y</span>, <span class="literal">t</span><span class="literal">his</span>.<span class="ST3">x</span>, <span class="literal">t</span><span class="literal">his</span>.<span class="ST3">y</span>).floatValue();<span class="comment">//gets the distance between 2 centers</span>
+        <span class="literal">if</span>( d &lt; (<span class="ST3">radius</span>.floatValue() + <span class="literal">this</span>.<span class="ST3">radius</span>.floatValue())){
+            count++;
+        } 
+        <span class="literal">else</span>{
+            <span class="literal">return</span> count;
+        }
+        <span class="literal">return</span> count;
+    }
+    <span class="literal">public</span> <span class="literal">static</span> BigCircle2D[] <span class="ST6">sortCirclesByNumberOfTimesOverlapping</span>(BigCircle2D[] ar) {
+            <span class="literal">for</span>(<span class="literal">int</span> i = 0; i&lt;ar.<span class="ST3">length</span>; ++i){
+         <span class="literal">if</span>(ar[i].getCounts(ar)&gt;ar[i++].getCounts(ar)){
+             BigCircle2D currentMin = ar[i];
+             ar[i]=ar[i++];
+             ar[i++]=currentMin;
+             
+         }
+     }
+  
+        <span class="literal">return</span> ar;
+    }
+
+    <span class="literal">private</span> <span class="literal">static</span> <span class="literal">int</span> <span class="ST6">countOverlaps</span>(BigCircle2D circle, BigCircle2D[] ar) {
+        <span class="literal">int</span> count = 0;
+        <span class="literal">for</span> (BigCircle2D c : ar) {
+            <span class="literal">if</span> (circle != c &amp;&amp; circle.overlaps(c)) {
+                count++;
+            }
+        }
+        <span class="literal">return</span> count;
+    }
+
+    <span class="literal">public</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST6">print</span>(BigCircle2D[] ar) {
+        <span class="literal">for</span> (BigCircle2D c : ar) {
+            System.<span class="ST4">out</span>.println(c);
+        }
+    }
+
+    <span class="literal">public</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST6">main</span>(String[] args) {
+        BigDecimal two = BigDecimal.<span class="ST5">valueOf</span>(2);
+
+        BigCircle2D c1 = <span class="literal">new</span> BigCircle2D(BigDecimal.<span class="ST5">valueOf</span>(2), BigDecimal.<span class="ST5">valueOf</span>(2), BigDecimal.<span class="ST5">valueOf</span>(5.5));
+        System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="string">Area is </span><span class="string">&quot;</span> + c1.getArea());
+        System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="string">Perimeter is </span><span class="string">&quot;</span> + c1.getPerimeter());
+        System.<span class="ST4">out</span>.println(c1.contains(BigDecimal.<span class="ST5">valueOf</span>(3), BigDecimal.<span class="ST5">valueOf</span>(3)));
+        System.<span class="ST4">out</span>.println(c1.contains(<span class="literal">new</span> BigCircle2D(BigDecimal.<span class="ST5">valueOf</span>(4), BigDecimal.<span class="ST5">valueOf</span>(5), BigDecimal.<span class="ST5">valueOf</span>(10.5))));
+        System.<span class="ST4">out</span>.println(c1.overlaps(<span class="literal">new</span> BigCircle2D(BigDecimal.<span class="ST5">valueOf</span>(3), BigDecimal.<span class="ST5">valueOf</span>(5), BigDecimal.<span class="ST5">valueOf</span>(2.3))));
+
+        <span class="comment">// Additional testing for sorting</span>
+        BigCircle2D c2 = <span class="literal">new</span> BigCircle2D(BigDecimal.<span class="ST4">ZERO</span>, BigDecimal.<span class="ST4">ZERO</span>, BigDecimal.<span class="ST5">valueOf</span>(2));
+        BigCircle2D c3 = <span class="literal">new</span> BigCircle2D(BigDecimal.<span class="ST5">valueOf</span>(4), BigDecimal.<span class="ST5">valueOf</span>(4), BigDecimal.<span class="ST5">valueOf</span>(3));
+        BigCircle2D c4 = <span class="literal">new</span> BigCircle2D(BigDecimal.<span class="ST4">ONE</span>, BigDecimal.<span class="ST4">ONE</span>, BigDecimal.<span class="ST4">ONE</span>);
+       BigCircle2D c5 = <span class="literal">new</span> BigCircle2D(BigDecimal.<span class="ST4">ZERO</span>, BigDecimal.<span class="ST4">ZERO</span>, BigDecimal.<span class="ST5">valueOf</span>(3));
+        BigCircle2D c6 = <span class="literal">new</span> BigCircle2D(BigDecimal.<span class="ST5">valueOf</span>(6), BigDecimal.<span class="ST5">valueOf</span>(6), BigDecimal.<span class="ST5">valueOf</span>(2));
+        BigCircle2D c7 = <span class="literal">new</span> BigCircle2D(BigDecimal.<span class="ST5">valueOf</span>(8), BigDecimal.<span class="ST5">valueOf</span>(8), BigDecimal.<span class="ST4">ONE</span>);
+
+       BigCircle2D[] circles = {c1, c2, c3, c4, c5, c6, c7};
+
+        System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="ST7">\n</span><span class="string">Circles sorted by perimeter:</span><span class="string">&quot;</span>);
+        <span class="ST5">print</span>(<span class="ST5">s</span><span class="ST5">ortCirclesByPerimeter</span>(circles));
+
+        System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="ST7">\n</span><span class="string">Circles sorted by the number of times they overlap:</span><span class="string">&quot;</span>);
+        <span class="ST5">print</span>(<span class="ST5">s</span><span class="ST5">ortCirclesByNumberOfTimesOverlapping</span>(circles));
+    }
+} 
+
+
+</pre></body>
+</html>
